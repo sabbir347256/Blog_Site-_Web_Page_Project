@@ -1,0 +1,77 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import './index.css'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Root from './Components/Pages/Root/Root';
+import Home from './Components/Pages/Home/Home';
+import About from './Components/Pages/About/About';
+import Contact from './Components/Pages/Contact/Contact';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+import SignIn from './Components/Pages/Signin and register/SignIn';
+import AuthContext from './Components/Authprovider/AuthContext';
+import Dashboard from './Components/Pages/DashBoard/Dashboard';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import Addpost from './Components/Pages/DashBoard/AddPost/Addpost';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import DashBoardHome from './Components/Pages/DashBoard/DashBoardHome';
+import ShowDetails from './Components/Pages/Home/AllBlogPost/ShowDetails';
+const queryClient = new QueryClient();
+// ..
+AOS.init();
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root></Root>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>
+      },
+      {
+        path: '/about',
+        element: <About></About>
+      },
+      {
+        path: '/contact',
+        element: <Contact></Contact>
+      },
+      {
+        path : '/viewdetails/:id',
+        element : <ShowDetails></ShowDetails>,
+        loader : () => fetch('http://localhost:5000/allBlog')
+      }
+    ],
+  },
+  {
+    path: '/signin',
+    element: <SignIn></SignIn>
+  },
+  {
+    path: 'dashboard',
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    children: [
+      {
+        index : true,
+        element : <DashBoardHome></DashBoardHome>
+      },
+      {
+        path: 'addpost',
+        element: <Addpost></Addpost>
+      }
+    ]
+  }
+]);
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <QueryClientProvider client={queryClient}>
+    <React.StrictMode>
+      <AuthContext>
+        <RouterProvider router={router} />
+      </AuthContext>
+    </React.StrictMode>
+  </QueryClientProvider>
+)
