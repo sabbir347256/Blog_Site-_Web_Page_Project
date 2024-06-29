@@ -35,7 +35,7 @@ const Addpost = () => {
         const addPostInfo = { photoUrl, blogTitle, category, date, description, headingDetails };
         console.log(addPostInfo)
 
-        fetch(`http://localhost:5000/addBlogPost`, {
+        fetch(`https://takbir-server-site.vercel.app/addBlogPost`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
