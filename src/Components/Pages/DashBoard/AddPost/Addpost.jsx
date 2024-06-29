@@ -47,7 +47,7 @@ const Addpost = () => {
                 if (data) {
                     Swal.fire({
                         title: "Success!",
-                        text: "Successfully post.",
+                        text: "Successfully send your message",
                         icon: "success"
                     });
                 }

@@ -19,6 +19,10 @@ import Addpost from './Components/Pages/DashBoard/AddPost/Addpost';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import DashBoardHome from './Components/Pages/DashBoard/DashBoardHome';
 import ShowDetails from './Components/Pages/Home/AllBlogPost/ShowDetails';
+import UserProfile from './Components/Pages/DashBoard/UserProfile/UserProfile';
+import ContactSms from './Components/Pages/DashBoard/AddPost/ContactSms/ContactSms';
+import Register from './Components/Pages/Signin and register/Register';
+import ManageUser from './Components/Pages/DashBoard/ManageUser/ManageUser';
 const queryClient = new QueryClient();
 // ..
 AOS.init();
@@ -51,6 +55,10 @@ const router = createBrowserRouter([
     element: <SignIn></SignIn>
   },
   {
+    path: '/register',
+    element: <Register></Register>
+  },
+  {
     path: 'dashboard',
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
@@ -59,8 +67,20 @@ const router = createBrowserRouter([
         element : <DashBoardHome></DashBoardHome>
       },
       {
+        path : 'adminprofile',
+        element : <UserProfile></UserProfile>
+      },
+      {
         path: 'addpost',
         element: <Addpost></Addpost>
+      },
+      {
+        path: 'contactSms',
+        element: <ContactSms></ContactSms>
+      },
+      {
+        path :'manageuser',
+        element : <ManageUser></ManageUser>
       }
     ]
   }

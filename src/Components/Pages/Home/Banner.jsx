@@ -17,40 +17,10 @@ const Banner = () => {
         },
         {
             image: "https://swiperjs.com/demos/images/nature-4.jpg",
-            heading: "Heading 4",
-            subheading: "Subheading 4",
-            description: "Description for slide 4",
         },
         {
             image: "https://swiperjs.com/demos/images/nature-5.jpg",
-            heading: "Heading 5",
-            subheading: "Subheading 5",
-            description: "Description for slide 5",
-        },
-        {
-            image: "https://swiperjs.com/demos/images/nature-6.jpg",
-            heading: "Heading 6",
-            subheading: "Subheading 6",
-            description: "Description for slide 6",
-        },
-        {
-            image: "https://swiperjs.com/demos/images/nature-7.jpg",
-            heading: "Heading 7",
-            subheading: "Subheading 7",
-            description: "Description for slide 7",
-        },
-        {
-            image: "https://swiperjs.com/demos/images/nature-8.jpg",
-            heading: "Heading 8",
-            subheading: "Subheading 8",
-            description: "Description for slide 8",
-        },
-        {
-            image: "https://swiperjs.com/demos/images/nature-9.jpg",
-            heading: "Heading 9",
-            subheading: "Subheading 9",
-            description: "Description for slide 9",
-        },
+        }
     ];
     return (
         <Swiper

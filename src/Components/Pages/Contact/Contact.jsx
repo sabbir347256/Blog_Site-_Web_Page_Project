@@ -2,7 +2,37 @@ import contact from '../../../image/contact.jpg'
 import aboutImage from '../../../image/contact us blog.jpg'
 import aboutImage1 from '../../../image/contact us blog 2.jpg'
 import aboutImage2 from '../../../image/contact image blog 3.jpg'
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 const Contact = () => {
+    const navigate = useNavigate();
+    const handleContact = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const sms = form.message.value;
+        const contactInformation = { name, email, sms };
+        
+        fetch(`http://localhost:5000/contactInformation`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(contactInformation)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Successfully post.",
+                        icon: "success"
+                    });
+                }
+                navigate(location?.state ? location.state : '/')
+            })
+    }
     return (
         <div className='bg-gray-100 contactbg'>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-10 px-5'>
@@ -19,14 +49,14 @@ const Contact = () => {
                         <div className="p-8">
                             <h2 className="text-2xl font-semibold text-gray-900">Contact Us</h2>
                             <p className="mt-2 text-gray-600">Feel free to reach out to us by filling the form below.</p>
-                            <form className="mt-6">
+                            <form onSubmit={handleContact} className="mt-6">
                                 <div className="mb-4">
                                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
                                         Name
                                     </label>
                                     <input
                                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                        id="name"
+                                        name='name'
                                         type="text"
                                         placeholder="Your Name"
                                     />
@@ -37,7 +67,7 @@ const Contact = () => {
                                     </label>
                                     <input
                                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                        id="email"
+                                        name="email"
                                         type="email"
                                         placeholder="Your Email"
                                     />
@@ -48,18 +78,13 @@ const Contact = () => {
                                     </label>
                                     <textarea
                                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                        id="message"
+                                        name="message"
                                         rows="4"
                                         placeholder="Your Message"
                                     ></textarea>
                                 </div>
                                 <div className="flex items-center justify-between">
-                                    <button
-                                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                        type="button"
-                                    >
-                                        Send
-                                    </button>
+                                    <input className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Send" />
                                 </div>
                             </form>
                         </div>

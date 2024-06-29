@@ -1,16 +1,14 @@
 import { useContext } from "react";
 import { AuthProvider } from "../../../Authprovider/AuthContext";
 import { useLoaderData, useParams } from "react-router-dom";
-import { LuUser } from "react-icons/lu";
-import { IoMdTime } from "react-icons/io";
 import { useQuery } from "@tanstack/react-query";
+import SameCategoryBlog from "./SameCategoryBlog";
 
 const ShowDetails = () => {
     const { loading } = useContext(AuthProvider)
     const detailsData = useLoaderData();
     const { id } = useParams();
     const details = detailsData.find(data => data._id == id);
-    console.log(details.headingDetails)
     const { photoUrl, blogTitle, category, description, date } = details;
 
     const { data: getFeature, isLoading } = useQuery({
@@ -24,7 +22,11 @@ const ShowDetails = () => {
         }
     });
 
-    if(loading){
+    const relatedPosts = getFeature?.filter(
+        (post) => post.category === details.category && post._id !== details._id
+    );
+
+    if (loading) {
         <p className="text-red-600 text-center"><span className="loading loading-infinity loading-lg"></span></p>;
     }
     return (
@@ -41,13 +43,18 @@ const ShowDetails = () => {
                         <div className="mt-8">
                             {details.headingDetails.map((detail, index) => (
                                 <div key={index} className="mt-4">
-                                    <h4 className={`${detail.heading ===''? 'text-lg font-bold': 'text-lg font-bold border-l-2 border-l-black p-1 bg-gray-200 rounded-xl'}`}>{detail.heading}</h4>
+                                    <h4 className={`${detail.heading === '' ? 'text-lg font-bold' : 'text-lg text-blue-800 font-bold border-l-2 border-l-black p-1 bg-gray-200 rounded-xl'}`}>{detail.heading}</h4>
                                     <p className="text-md mt-3 p-1">{detail.headingDescription}</p>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-5 gap-3">
+                {
+                    relatedPosts?.map(sameCategoryBlog => <SameCategoryBlog key={sameCategoryBlog._id} sameCategoryBlog={sameCategoryBlog} ></SameCategoryBlog>)
+                }
             </div>
         </div>
     );
