@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: import.meta.env.VITE_APIKEY,
-    authDomain: import.meta.env.VITE_AUTHDOMAIN,
-    projectId: import.meta.env.VITE_PROJECTID,
-    storageBucket: import.meta.env.VITE_STORAGEBUCKET,
-    messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
-    appId: import.meta.env.VITE_APPID,
+  apiKey: "AIzaSyCV227WoriJoGC5yPvvXJ64gSpK2AmwUnE",
+  authDomain: "himu-lab.firebaseapp.com",
+  projectId: "himu-lab",
+  storageBucket: "himu-lab.appspot.com",
+  messagingSenderId: "355636449900",
+  appId: "1:355636449900:web:ab87ca27fd5bf7003e3e49"
 };
 
 // Initialize Firebase

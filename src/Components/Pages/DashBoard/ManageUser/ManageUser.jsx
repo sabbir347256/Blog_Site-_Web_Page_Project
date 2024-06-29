@@ -5,7 +5,7 @@ const ManageUser = () => {
     const { data: manageUser, isLoading } = useQuery({
         queryKey: ['GET'],
         queryFn: () => {
-            return fetch('https://takbir-server-site.vercel.app/registerUser')
+            return fetch('https://blog-web-server-site.vercel.app/registerUser')
                 .then(res => res.json())
                 .then(data => {
                     return data;

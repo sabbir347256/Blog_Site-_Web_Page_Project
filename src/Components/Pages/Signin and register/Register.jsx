@@ -44,7 +44,7 @@ const Register = () => {
                         timer: 1500
                     })
                 );
-                fetch(`https://takbir-server-site.vercel.app/registerUser`, {
+                fetch(`https://blog-web-server-site.vercel.app/registerUser`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

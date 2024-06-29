@@ -9,7 +9,7 @@ const AllBlogPost = () => {
     const { data: blogpost, isLoading } = useQuery({
         queryKey: ['GET'],
         queryFn: () => {
-            return fetch('https://takbir-server-site.vercel.app/allBlog')
+            return fetch('https://blog-web-server-site.vercel.app/allBlog')
                 .then(res => res.json())
                 .then(data => {
                     return data;
