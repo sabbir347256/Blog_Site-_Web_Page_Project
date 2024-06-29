@@ -50,7 +50,7 @@ const Navbar = () => {
                     <div className="hidden md:flex space-x-4 items-center">
                         {navlinks}
                         {
-                            user?.email === "bewyaris71@gmail.com" ? <div className="dropdown dropdown-end z-10">
+                            user?.email === "himulabs@gmail.com" ? <div className="dropdown dropdown-end z-10">
                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">
                                         <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
@@ -81,7 +81,7 @@ const Navbar = () => {
                         <div className="md:hidden h-screen animate-slide-in-left mt-3">
                             {navlinks}
                             {
-                                user?.email === 'bewyaris71@gmail.com' && <div className="dropdown  z-10">
+                                user?.email === 'himulabs@gmail.com' && <div className="dropdown  z-10">
                                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                         <div className="w-10 rounded-full">
                                             <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
