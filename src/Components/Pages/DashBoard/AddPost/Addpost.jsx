@@ -35,7 +35,7 @@ const Addpost = () => {
         const addPostInfo = { photoUrl, blogTitle, category, date, description, headingDetails };
         console.log(addPostInfo)
 
-        fetch(`https://blog-web-server-site.vercel.app/addBlogPost`, {
+        fetch(`http://localhost:5000/addBlogPost`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

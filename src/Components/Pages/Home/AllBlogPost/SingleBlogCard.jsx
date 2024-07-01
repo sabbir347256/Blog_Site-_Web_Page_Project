@@ -3,20 +3,20 @@ import { AuthProvider } from "../../../Authprovider/AuthContext";
 import { IoMdTime } from "react-icons/io";
 import { LuUser } from "react-icons/lu";
 import { NavLink } from "react-router-dom";
-
+import PropTypes from 'prop-types'
 
 const SingleBlogCard = ({ blogData }) => {
     const { blogTitle, photoUrl, category, date ,_id} = blogData;
     const { user } = useContext(AuthProvider);
     return (
         <NavLink to={`/viewdetails/${_id}`}>
-            <div className="bg-base-100 h-[32rem] w-full shadow-2xl border-2 border-blue-900 bangla">
+            <div className="bg-base-100 h-[26rem] w-full shadow-2xl border-2 border-blue-900 tiroBangla">
                 <figure className="border-b-2 border-b-gray-500">
-                    <img className="h-72 w-full"
+                    <img className="h-60 w-full"
                         src={photoUrl}
                         alt="Shoes" />
                 </figure>
-                <div className="card-body">
+                <div className="p-6">
                     <h4 className="text-green-500">{category}</h4>
                     <h2 className="card-title hover:text-blue-700">
                         {blogTitle}
@@ -37,4 +37,7 @@ const SingleBlogCard = ({ blogData }) => {
     );
 };
 
+SingleBlogCard.propTypes = {
+    blogData : PropTypes.object
+}
 export default SingleBlogCard;

@@ -43,10 +43,12 @@ const Navbar = () => {
         <div className="App ">
             <nav className="p-1 shadow-2xl">
                 <div className="container mx-auto flex justify-between items-center">
-                    <div className='flex items-center'>
-                        <img className='h-8 w-8 mr-2 rounded-full' src={logo} alt="" />
-                        <div className="text-black border-green-600  font-bold text-2xl roboto">HimuBlog</div>
-                    </div>
+                    <NavLink to='/'>
+                        <div className='flex items-center'>
+                            <img className='h-8 w-8 mr-2 border-2 border-gray-400 rounded-full' src={logo} alt="" />
+                            <div className="text-black border-green-600  font-bold text-2xl roboto">HimuBlog</div>
+                        </div>
+                    </NavLink>
                     <div className="hidden md:flex space-x-4 items-center">
                         {navlinks}
                         {
@@ -65,11 +67,11 @@ const Navbar = () => {
                     <div className="md:hidden">
                         <button onClick={toggleMenu} className="text-white focus:outline-none">
                             {isOpen ? (
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             ) : (
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
                                 </svg>
                             )}

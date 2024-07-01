@@ -15,12 +15,6 @@ const Banner = () => {
         {
             image: "https://swiperjs.com/demos/images/nature-3.jpg",
         },
-        {
-            image: "https://swiperjs.com/demos/images/nature-4.jpg",
-        },
-        {
-            image: "https://swiperjs.com/demos/images/nature-5.jpg",
-        }
     ];
     return (
         <Swiper
@@ -41,17 +35,12 @@ const Banner = () => {
                 disableOnInteraction: false,
             }}
             modules={[EffectCoverflow, Pagination, Autoplay]}
-            className="mySwiper sliderBg"
+            className="mySwiper"
         >
             {slidesData.map((slide, index) => (
                 <SwiperSlide key={index}>
                     <div className="relative">
                         <img src={slide.image} alt={`Slide ${index + 1}`} className="w-full h-auto rounded-lg" />
-                        <div className="absolute inset-0 bg-black bg-opacity-0 flex flex-col justify-center items-center text-center p-4 rounded-lg">
-                            <h2 className="text-white text-2xl font-bold">{slide.heading}</h2>
-                            <h4 className="text-white text-xl">{slide.subheading}</h4>
-                            <p className="text-white">{slide.description}</p>
-                        </div>
                     </div>
                 </SwiperSlide>
             ))}

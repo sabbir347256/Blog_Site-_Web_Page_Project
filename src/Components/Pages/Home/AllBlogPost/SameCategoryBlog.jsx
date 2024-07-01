@@ -3,15 +3,16 @@ import { NavLink } from "react-router-dom";
 import { AuthProvider } from "../../../Authprovider/AuthContext";
 import { LuUser } from "react-icons/lu";
 import { IoMdTime } from "react-icons/io";
+import PropTypes from 'prop-types'
 
 const SameCategoryBlog = ({ sameCategoryBlog }) => {
-    const { user } = useContext(AuthProvider);
+    const { user} = useContext(AuthProvider);
     const { blogTitle, photoUrl, category, date, _id } = sameCategoryBlog;
     return (
         <NavLink to={`/viewdetails/${_id}`}>
-            <div className="bg-base-100 h-[32rem] w-full shadow-2xl bangla">
+            <div className="bg-base-100 h-[26rem] w-full shadow-2xl tiroBangla">
                 <figure className="border-b-2 border-b-gray-500">
-                    <img className="h-72 object-cover w-full"
+                    <img className="h-52 w-full"
                         src={photoUrl}
                         alt="Shoes" />
                 </figure>
@@ -36,4 +37,7 @@ const SameCategoryBlog = ({ sameCategoryBlog }) => {
     );
 };
 
+SameCategoryBlog.propTypes = {
+    sameCategoryBlog : PropTypes.object
+}
 export default SameCategoryBlog;

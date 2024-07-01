@@ -14,7 +14,7 @@ const Contact = () => {
         const sms = form.message.value;
         const contactInformation = { name, email, sms };
         
-        fetch(`https://blog-web-server-site.vercel.app/contactInformation`, {
+        fetch(`http://localhost:5000/contactInformation`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -40,7 +40,7 @@ const Contact = () => {
                 <img className='rounded-2xl h-60 my-6 md:my-0' src={aboutImage1} alt="" />
                 <img className='rounded-2xl h-60' src={aboutImage2} alt="" />
             </div>
-            <div className="min-h-screen px-5 md:px-0 bg-gray-100 flex flex-col justify-center items-center contactbg shadow-2xl">
+            <div className="min-h-screen p-5 md:px-0 bg-gray-100 flex flex-col justify-center items-center contactbg shadow-2xl">
                 <div className="max-w-4xl w-full bg-white shadow-md rounded-lg overflow-hidden">
                     <div className="md:flex">
                         <div className="md:flex-shrink-0">

@@ -2,8 +2,8 @@ import authorImage from '../../../image/author Image.jpg'
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center banner px-5 md:px-0">
-      <div className="max-w-6xl w-full bg-white shadow-md rounded-lg overflow-hidden">
+    <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center banner md:px-0">
+      <div className="max-w-6xl w-full bg-white shadow-md  overflow-hidden">
         <div className="md:flex">
           <div className="md:flex-shrink-0">
             <img

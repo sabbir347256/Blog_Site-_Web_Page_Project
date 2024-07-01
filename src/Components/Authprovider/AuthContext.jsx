@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from './../../Firebase/Firebase.config';
+import PropTypes from 'prop-types'
 
 export const AuthProvider = createContext();
 const AuthContext = ({ children }) => {
@@ -51,4 +52,7 @@ const AuthContext = ({ children }) => {
     );
 };
 
+AuthContext.propTypes = {
+    children : PropTypes.object
+}
 export default AuthContext;
