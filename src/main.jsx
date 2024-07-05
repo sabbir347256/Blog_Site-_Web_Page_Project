@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       {
         path : '/viewdetails/:id',
         element : <ShowDetails></ShowDetails>,
-        loader : () => fetch('http://localhost:5000/allBlog')
+        loader : () => fetch('https://blog-web-server-site.vercel.app/allBlog')
       }
     ],
   },

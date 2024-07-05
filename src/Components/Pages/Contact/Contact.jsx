@@ -14,7 +14,7 @@ const Contact = () => {
         const sms = form.message.value;
         const contactInformation = { name, email, sms };
         
-        fetch(`http://localhost:5000/contactInformation`, {
+        fetch(`https://blog-web-server-site.vercel.app/contactInformation`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

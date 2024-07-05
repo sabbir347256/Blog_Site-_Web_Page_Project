@@ -1,19 +1,37 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { CiFacebook } from "react-icons/ci";
 import { ImTwitter } from "react-icons/im";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const Footer = () => {
-    const [inputValue, setInputValue] = useState('');
+    const [sms, setInputValue] = useState('');
+    const navigate = useNavigate();
+
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
-      };
-    const handleSendSms =(e) =>{
+    };
+    const handleContact = (e) => {
         e.preventDefault();
-        // const form = e.target;
-        // const inputField = form.inputField.value;
-        console.log(inputValue)
-        setInputValue('')
+        const inputValue = {sms};
+        fetch(`https://blog-web-server-site.vercel.app/contactInformation`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(inputValue)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Successfully post.",
+                        icon: "success"
+                    });
+                }
+                navigate(location?.state ? location.state : '/')
+            })
     }
     return (
         <footer className="bg-[#07162c] text-white pb-0 notoBangla">
@@ -49,12 +67,12 @@ const Footer = () => {
                         <h2>যেকোনো প্রয়োজনে ইমেইল করুন</h2>
                     </div>
                     <div className="flex items-center justify-center ">
-                        <form onSubmit={handleSendSms}  className=" p-6 rounded shadow-md w-full max-w-md">
+                        <form onSubmit={handleContact} className=" p-6 rounded shadow-md w-full max-w-md">
                             <div className="mb-4">
                                 <input
                                     type="text"
                                     name="inputField"
-                                    value={inputValue}
+                                    value={sms}
                                     onChange={handleInputChange}
                                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                     placeholder="write your sms..."

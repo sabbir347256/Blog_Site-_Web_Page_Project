@@ -16,7 +16,7 @@ const ContactsmsList = ({ contactSms, refetch }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/deleteComment/${id}`, {
+                fetch(`https://blog-web-server-site.vercel.app/deleteComment/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

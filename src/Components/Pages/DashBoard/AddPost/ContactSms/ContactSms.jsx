@@ -5,7 +5,7 @@ const ContactSms = () => {
     const { data: contactSms, isLoading,refetch } = useQuery({
         queryKey: ['GET'],
         queryFn: () => {
-            return fetch('http://localhost:5000/contactInformation')
+            return fetch('https://blog-web-server-site.vercel.app/contactInformation')
                 .then(res => res.json())
                 .then(data => {
                     return data;

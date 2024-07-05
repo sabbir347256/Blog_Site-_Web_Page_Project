@@ -5,7 +5,7 @@ const Allmypost = () => {
     const { data: allpost, isLoading,refetch } = useQuery({
         queryKey: ['GET'],
         queryFn: () => {
-            return fetch('http://localhost:5000/allblog')
+            return fetch('https://blog-web-server-site.vercel.app/allblog')
                 .then(res => res.json())
                 .then(data => {
                     return data;
