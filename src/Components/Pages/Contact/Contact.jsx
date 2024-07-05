@@ -14,7 +14,7 @@ const Contact = () => {
         const sms = form.message.value;
         const contactInformation = { name, email, sms };
         
-        fetch(`https://takbir-server-site.vercel.app/contactInformation`, {
+        fetch(`http://localhost:5000/contactInformation`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

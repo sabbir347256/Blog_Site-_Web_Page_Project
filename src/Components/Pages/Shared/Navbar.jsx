@@ -40,7 +40,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="App ">
+        <div className="App soraFont">
             <nav className="p-1 shadow-2xl">
                 <div className="container mx-auto flex justify-between items-center">
                     <NavLink to='/'>

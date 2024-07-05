@@ -1,11 +1,10 @@
 import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const ContactsmsList = ({ contactSms, refetch }) => {
-    const { name, email, sms, _id } = contactSms;
+const Specificpost = ({ post ,refetch}) => {
+    const { blogTitle, date,_id } = post;
 
     const handleDelete = (id) => {
-
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -16,7 +15,7 @@ const ContactsmsList = ({ contactSms, refetch }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/deleteComment/${id}`, {
+                fetch(`http://localhost:5000/deletePost/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -36,16 +35,13 @@ const ContactsmsList = ({ contactSms, refetch }) => {
     }
     return (
         <tbody>
-            <tr className="soraFont">
-                <th>{name}</th>
-                <td>{email}</td>
-                <td>{sms}</td>
-                <td><NavLink>
-                    <button onClick={() =>handleDelete(_id)} className="btn btn-primary">Delete</button>
-                </NavLink></td>
+            <tr className="tiroBangla">
+                <th>{blogTitle}</th>
+                <td>{date}</td>
+                <td><NavLink><button onClick={() => handleDelete(_id)} className="btn-primary btn hover:bg-red-700 duration-500">Delete</button></NavLink></td>
             </tr>
         </tbody>
     );
 };
 
-export default ContactsmsList;
+export default Specificpost;

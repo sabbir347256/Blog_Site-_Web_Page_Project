@@ -14,7 +14,7 @@ const ShowDetails = () => {
     const { data: getFeature, isLoading } = useQuery({
         queryKey: ['GET'],
         queryFn: () => {
-            return fetch(`https://takbir-server-site.vercel.app/getSomeFeatures/${category}`)
+            return fetch(`http://localhost:5000/getSomeFeatures/${category}`)
                 .then(res => res.json())
                 .then(data => {
                     return data;

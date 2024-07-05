@@ -35,7 +35,7 @@ const Addpost = () => {
         const addPostInfo = { photoUrl, blogTitle, category, date, description, headingDetails };
         console.log(addPostInfo)
 
-        fetch(`https://takbir-server-site.vercel.app/addBlogPost`, {
+        fetch(`http://localhost:5000/addBlogPost`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -47,7 +47,7 @@ const Addpost = () => {
                 if (data) {
                     Swal.fire({
                         title: "Success!",
-                        text: "Successfully send your message",
+                        text: "Successfully add post",
                         icon: "success"
                     });
                 }
@@ -197,7 +197,7 @@ const Addpost = () => {
                         type="submit"
                         className="bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
-                        Submit
+                        Add Post
                     </button>
                 </div>
             </form>

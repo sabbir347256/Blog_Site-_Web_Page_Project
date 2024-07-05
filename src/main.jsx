@@ -23,6 +23,7 @@ import UserProfile from './Components/Pages/DashBoard/UserProfile/UserProfile';
 import ContactSms from './Components/Pages/DashBoard/AddPost/ContactSms/ContactSms';
 import Register from './Components/Pages/Signin and register/Register';
 import ManageUser from './Components/Pages/DashBoard/ManageUser/ManageUser';
+import Allmypost from './Components/Pages/DashBoard/AllMyPost/Allmypost';
 const queryClient = new QueryClient();
 // ..
 AOS.init();
@@ -46,7 +47,7 @@ const router = createBrowserRouter([
       {
         path : '/viewdetails/:id',
         element : <ShowDetails></ShowDetails>,
-        loader : () => fetch('https://takbir-server-site.vercel.app/allBlog')
+        loader : () => fetch('http://localhost:5000/allBlog')
       }
     ],
   },
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
       {
         path: 'addpost',
         element: <Addpost></Addpost>
+      },
+      {
+        path : 'allpost',
+        element : <Allmypost></Allmypost>
       },
       {
         path: 'contactSms',
