@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AuthProvider } from "../../Authprovider/AuthContext";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
     const { createUser } = useContext(AuthProvider);
@@ -64,6 +65,9 @@ const Register = () => {
 
     return (
         <div className="hero min-h-screen bg-base-200 loginBg">
+            <Helmet>
+                <title>Himu Labs || Register</title>
+            </Helmet>
             <div className="hero-content ">
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">

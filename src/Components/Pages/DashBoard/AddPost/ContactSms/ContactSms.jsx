@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import ContactsmsList from "./ContactsmsList";
+import { Helmet } from "react-helmet";
 
 const ContactSms = () => {
     const { data: contactSms, isLoading,refetch } = useQuery({
@@ -17,6 +18,9 @@ const ContactSms = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Himu Labs || Dashboard/ContactSms</title>
+            </Helmet>
             <div className="overflow-x-auto ">
                 <table className="table table-zebra">
                     {/* head */}

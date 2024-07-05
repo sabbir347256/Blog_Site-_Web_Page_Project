@@ -5,9 +5,10 @@ import Swal from "sweetalert2";
 import { FcGoogle } from "react-icons/fc";
 import { GoogleAuthProvider } from "firebase/auth";
 import { AuthProvider } from "../../Authprovider/AuthContext";
+import { Helmet } from "react-helmet";
 
 const SignIn = () => {
-   const {googleLogin,signIn} = useContext(AuthProvider);
+    const { googleLogin, signIn } = useContext(AuthProvider);
     const provider = new GoogleAuthProvider();
     const [success, setSuccess] = useState('');
     const navigate = useNavigate();
@@ -55,6 +56,9 @@ const SignIn = () => {
     }
     return (
         <div className="hero min-h-screen bg-base-200 loginBg">
+            <Helmet>
+                <title>Himu Labs || SignIn</title>
+            </Helmet>
             <div className="hero-content ">
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit(onsubmit)} className="card-body">

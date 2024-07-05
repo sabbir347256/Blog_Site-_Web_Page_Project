@@ -1,8 +1,12 @@
+import { Helmet } from 'react-helmet';
 import authorImage from '../../../image/author Image.jpg'
 
 const About = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center banner md:px-0">
+      <Helmet>
+        <title>Himu Labs || About</title>
+      </Helmet>
       <div className="max-w-6xl w-full bg-white shadow-md  overflow-hidden">
         <div className="md:flex">
           <div className="md:flex-shrink-0">

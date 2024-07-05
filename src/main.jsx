@@ -24,6 +24,7 @@ import ContactSms from './Components/Pages/DashBoard/AddPost/ContactSms/ContactS
 import Register from './Components/Pages/Signin and register/Register';
 import ManageUser from './Components/Pages/DashBoard/ManageUser/ManageUser';
 import Allmypost from './Components/Pages/DashBoard/AllMyPost/Allmypost';
+import { HelmetProvider } from 'react-helmet-async';
 const queryClient = new QueryClient();
 // ..
 AOS.init();
@@ -45,9 +46,9 @@ const router = createBrowserRouter([
         element: <Contact></Contact>
       },
       {
-        path : '/viewdetails/:id',
-        element : <ShowDetails></ShowDetails>,
-        loader : () => fetch('https://blog-web-server-site.vercel.app/allBlog')
+        path: '/viewdetails/:id',
+        element: <ShowDetails></ShowDetails>,
+        loader: () => fetch('https://blog-web-server-site.vercel.app/allBlog')
       }
     ],
   },
@@ -64,39 +65,41 @@ const router = createBrowserRouter([
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
-        index : true,
-        element : <DashBoardHome></DashBoardHome>
+        index: true,
+        element: <DashBoardHome></DashBoardHome>
       },
       {
-        path : 'adminprofile',
-        element : <UserProfile></UserProfile>
+        path: 'adminprofile',
+        element: <UserProfile></UserProfile>
       },
       {
         path: 'addpost',
         element: <Addpost></Addpost>
       },
       {
-        path : 'allpost',
-        element : <Allmypost></Allmypost>
+        path: 'allpost',
+        element: <Allmypost></Allmypost>
       },
       {
         path: 'contactSms',
         element: <ContactSms></ContactSms>
       },
       {
-        path :'manageuser',
-        element : <ManageUser></ManageUser>
+        path: 'manageuser',
+        element: <ManageUser></ManageUser>
       }
     ]
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <QueryClientProvider client={queryClient}>
-    <React.StrictMode>
-      <AuthContext>
-        <RouterProvider router={router} />
-      </AuthContext>
-    </React.StrictMode>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <React.StrictMode>
+        <AuthContext>
+          <RouterProvider router={router} />
+        </AuthContext>
+      </React.StrictMode>
+    </QueryClientProvider>
+  </HelmetProvider>
 )

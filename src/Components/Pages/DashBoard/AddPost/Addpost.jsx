@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { ImageUpload } from "../../Home/AllBlogPost/ImgBB";
+import { Helmet } from "react-helmet";
 
 const Addpost = () => {
     const { register, handleSubmit } = useForm();
@@ -56,6 +57,9 @@ const Addpost = () => {
     };
     return (
         <div>
+            <Helmet>
+                <title>Himu Labs || Dashboard/AddPost</title>
+            </Helmet>
             <form onSubmit={handleSubmit(onSubmit)} className="max-w-4xl mx-auto py-4 space-y-6 bg-gray-100 rounded-xl my-6 px-10">
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Blog Image</label>

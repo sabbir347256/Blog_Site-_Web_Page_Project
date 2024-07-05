@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import Specificpost from "./Specificpost";
+import { Helmet } from "react-helmet";
 
 const Allmypost = () => {
     const { data: allpost, isLoading,refetch } = useQuery({
@@ -17,6 +18,9 @@ const Allmypost = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Himu Labs || Dashboard/AllPost</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table table-zebra">
                     {/* head */}

@@ -1,11 +1,15 @@
 import { useContext } from "react";
 import { AuthProvider } from "../../../Authprovider/AuthContext";
 import adminBg from '../../../../image/adminBg.jpeg'
+import { Helmet } from "react-helmet";
 
 const UserProfile = () => {
-    const {user} = useContext(AuthProvider);
+    const { user } = useContext(AuthProvider);
     return (
         <div>
+            <Helmet>
+                <title>Himu Labs || Dashboard/AdminProfile</title>
+            </Helmet>
             <div className='flex justify-center my-20'>
                 <div className='bg-gray-100 shadow-lg rounded-2xl w-3/5 '>
                     <img

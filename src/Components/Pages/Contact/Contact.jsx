@@ -4,6 +4,7 @@ import aboutImage1 from '../../../image/contact us blog 2.jpg'
 import aboutImage2 from '../../../image/contact image blog 3.jpg'
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 const Contact = () => {
     const navigate = useNavigate();
     const handleContact = (e) => {
@@ -13,7 +14,7 @@ const Contact = () => {
         const email = form.email.value;
         const sms = form.message.value;
         const contactInformation = { name, email, sms };
-        
+
         fetch(`https://blog-web-server-site.vercel.app/contactInformation`, {
             method: 'POST',
             headers: {
@@ -35,6 +36,9 @@ const Contact = () => {
     }
     return (
         <div className='bg-gray-100 contactbg'>
+            <Helmet>
+                <title>Himu Labs || Contact</title>
+            </Helmet>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-10 px-5'>
                 <img className='rounded-2xl h-60' src={aboutImage} alt="" />
                 <img className='rounded-2xl h-60 my-6 md:my-0' src={aboutImage1} alt="" />

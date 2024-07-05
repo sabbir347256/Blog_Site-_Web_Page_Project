@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import ManageUserList from "./ManageUserList";
+import { Helmet } from "react-helmet";
 
 const ManageUser = () => {
     const { data: manageUser, isLoading } = useQuery({
@@ -18,6 +19,9 @@ const ManageUser = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Himu Labs || Dashboard/ManageUser</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table table-zebra">
                     {/* head */}

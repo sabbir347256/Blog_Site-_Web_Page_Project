@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { CiFacebook } from "react-icons/ci";
 import { ImTwitter } from "react-icons/im";
+import { FaLinkedin } from "react-icons/fa6";
 import { useState } from "react";
 import Swal from "sweetalert2";
 
@@ -13,7 +14,7 @@ const Footer = () => {
     };
     const handleContact = (e) => {
         e.preventDefault();
-        const inputValue = {sms};
+        const inputValue = { sms };
         fetch(`https://blog-web-server-site.vercel.app/contactInformation`, {
             method: 'POST',
             headers: {
@@ -58,8 +59,9 @@ const Footer = () => {
                         <h2>সোশ্যাল মিডিয়া ফলো করুন</h2>
                     </div>
                     <div className="flex gap-4 mt-5 items-center justify-center">
-                        <CiFacebook className="size-8 bg-white text-black rounded-full p-1"></CiFacebook>
-                        <ImTwitter className="size-8 bg-white text-black rounded-full p-1"></ImTwitter>
+                        <NavLink to='https://web.facebook.com/takvirhimu69'><CiFacebook className="size-8 bg-white text-black rounded-full p-1"></CiFacebook></NavLink>
+                        <NavLink to='https://l.facebook.com/l.php?u=https%3A%2F%2Fx.com%2Ftakbirhimu69%3Ffbclid%3DIwZXh0bgNhZW0CMTAAAR2tucARCozbwkq6tQw-KGu6e8J047A4rP2hwslftzBmDlMv1bL0BJPRGJk_aem_YtDCIxc1qqL_IotAHjvSWA&h=AT1v4aSJLkahVDmDtlL_H8_7nfpqsS6P50fqwis1nsumduvKNKYw4ChwLINOEaNCatHm8aeNqeQXUjyhvhv-fs53JNQ4M2WqZCC0EJzA8cfQq-p0CQytXx1C9G5pGGwlZRVzEA'><ImTwitter className="size-8 bg-white text-black rounded-full p-1"></ImTwitter></NavLink>
+                        <NavLink to='https://www.linkedin.com/in/takbirhimu69/?fbclid=IwZXh0bgNhZW0CMTAAAR33nzuaTXa8vrLcSF1XlppqdQHhdxCF2GqA1ovY_3UasguwQ06UqIqTE54_aem_zFzJ0HJQnwk2wc_6xvg-sw'><FaLinkedin className="size-8 bg-white text-black rounded-full p-1"></FaLinkedin></NavLink>
                     </div>
                 </div>
                 <div>
